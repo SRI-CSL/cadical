@@ -404,6 +404,10 @@ msg "generated '$build/makefile' from '../makefile.in'"
 
 #--------------------------------------------------------------------------#
 
+#
+# BD: added targets install, libcadical.so, libcadical.dylib
+#
+
 build="`pwd`"
 makefile="`dirname "$build"`/makefile"
 cat <<EOF > "$makefile"
@@ -430,7 +434,17 @@ mobical:
 	\$(MAKE) -j1 -C "\$(CADICALBUILD)" mobical
 update:
 	\$(MAKE) -j1 -C "\$(CADICALBUILD)" update
-.PHONY: all cadical clean mobical test update
+
+install:
+	\$(MAKE) -j1 -C "\$(CADICALBUILD)" install
+
+libcadical.so:
+	\$(MAKE) -j1 -C "\$(CADICALBUILD)" libcadical.so
+
+libcadical.dylib:
+	\$(MAKE) -j1 -C "\$(CADICALBUILD)" libcadical.dylib
+
+.PHONY: all cadical clean mobical test update install libcadical.so libcadical.dylib
 EOF
 
 msg "generated '../makefile' as proxy to ..."

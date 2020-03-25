@@ -51,6 +51,32 @@ mobical: mobical.o libcadical.a makefile
 libcadical.a: $(OBJ) makefile
 	ar rc $@ $(OBJ)
 
+
+#-------------------------------------------------------------------------#
+#
+# BD: added rules for dynamic libraries and for install
+# To build libcadical.so, you must call 'make libcadical.so' explicitly.
+# This is very basic for now (e.g., there's no version).
+# Building the dynamic libraries require configuring with CXXFLAGS=-fPIC
+# on Linux.
+#
+# The install rule expects both static and dynamic libraries to exist in build.
+#
+libcadical.so: $(OBJ)
+	$(COMPILE) -shared -o $@ $(OBJ)
+
+libcadical.dylib: $(OBJ)
+	$(COMPILE) -shared -o $@ $(OBJ)
+
+install:
+	install libcadical.a /usr/local/lib
+	install libcadical.so /usr/local/lib
+	install cadical /usr/local/bin
+	install mobical /usr/local/bin
+	install -m644 ../src/ccadical.h /usr/local/include
+
+.PHONY: install
+
 #--------------------------------------------------------------------------#
 
 # Note that 'build.hpp' is generated and resides in the build directory.
