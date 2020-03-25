@@ -68,12 +68,18 @@ libcadical.so: $(OBJ)
 libcadical.dylib: $(OBJ)
 	$(COMPILE) -shared -o $@ $(OBJ)
 
+PREFIX?=/usr/local
+
 install:
-	install libcadical.a /usr/local/lib
-	install libcadical.so /usr/local/lib
-	install cadical /usr/local/bin
-	install mobical /usr/local/bin
-	install -m644 ../src/ccadical.h /usr/local/include
+	mkdir -p $(PREFIX)
+	mkdir -p $(PREFIX)/lib
+	mkdir -p $(PREFIX)/bin
+	mkdir -p $(PREFIX)/include
+	install libcadical.a $(PREFIX)/lib
+	#install libcadical.so $(PREFIX)/lib
+	install cadical $(PREFIX)/bin
+	install mobical $(PREFIX)/bin
+	install -m644 ../src/ccadical.h $(PREFIX)/include
 
 .PHONY: install
 
