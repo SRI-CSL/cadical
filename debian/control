@@ -1,0 +1,17 @@
+Source: cadical
+Section: misc
+Priority: optional
+Maintainer: Ian A Mason <iam@csl.sri.com>
+Build-Depends: debhelper (>= 10)
+Standards-Version: 4.1.2
+Homepage: https://github.com/arminbiere/cadical
+
+Package: cadical
+Architecture: any
+Depends: ${misc:Depends}
+Description: The CDCL SAT solver CaDiCaL
+ CaDiCaL is a CDCL SAT solver.
+ .
+ CaDiCaL is a CDCL solver, which is easy to understand and change,
+ while at the same time being much comparable to other
+ state-of-the-art CDCL solvers.
