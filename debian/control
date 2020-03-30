@@ -9,7 +9,7 @@ Homepage: https://github.com/arminbiere/cadical
 Package: cadical
 Architecture: any
 Depends: ${misc:Depends}
-Description: The CDCL SAT solver CaDiCaL
+Description: CDCL SAT solver CaDiCaL
  CaDiCaL is a CDCL SAT solver.
  .
  CaDiCaL is a CDCL solver, which is easy to understand and change,

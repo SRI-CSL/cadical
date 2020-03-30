@@ -16,7 +16,7 @@
 // the file '../VERSION' with '../scripts/update-version.sh'.  The standard
 // build process relies on 'VERSION' to be defined in 'build.hpp'.
 
-#  define VERSION "1.2.1"
+#  define VERSION "1.2.2"
 
 /*------------------------------------------------------------------------*/
 
