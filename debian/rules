@@ -9,6 +9,5 @@
 override_dh_auto_configure:
 	export CXXFLAGS=-fPIC ; ./configure
 
-# may need to pay attention to ARCH=$(DEB_HOST_MULTIARCH)
 override_dh_auto_install:
-	$(MAKE) PREFIX=$$(pwd)/debian/cadical/usr install
+	$(MAKE) PREFIX=$$(pwd)/debian/cadical/usr ARCH=$(DEB_HOST_MULTIARCH) install

@@ -70,13 +70,19 @@ libcadical.dylib: $(OBJ)
 
 PREFIX?=/usr/local
 
+ifeq ($(ARCH),)
+	DESTLIB=lib
+else
+	DESTLIB=lib/${ARCH}
+endif
+
 install:
 	mkdir -p $(PREFIX)
-	mkdir -p $(PREFIX)/lib
+	mkdir -p $(PREFIX)/${DESTLIB}
 	mkdir -p $(PREFIX)/bin
 	mkdir -p $(PREFIX)/include
-	install libcadical.a $(PREFIX)/lib
-	#install libcadical.so $(PREFIX)/lib
+	install libcadical.a $(PREFIX)/${DESTLIB}
+	#install libcadical.so $(PREFIX)/${DESTLIB}
 	install cadical $(PREFIX)/bin
 	install mobical $(PREFIX)/bin
 	install -m644 ../src/ccadical.h $(PREFIX)/include
